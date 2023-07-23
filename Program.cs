@@ -1,5 +1,5 @@
 ﻿//исходные данные
-int []array={9,3,4,22,100};
+int []array={9,3,4,22,100,1000};
 int s=array.Length;
 int i=0;
 int sum=0;
@@ -40,5 +40,44 @@ int f_max(int []massive)
     return max;
 }
 
+//блок операций
+int min=f_min(array);
+int max=f_max(array);
+
+while(i<s) //находит местонахождение минимального и максимального элемента в массиве
+{
+    if(array[i]==max)
+    {
+        i_max=i;
+    }
+    else if(array[i]==min)
+    {
+        i_min=i;
+    }
+    i++;
+}
+
+if(i_min<i_max)
+{
+    for (i=i_min+1;i<i_max;i++)
+    {
+        sum=sum+array[i];
+    }
+}
+else
+{
+    for (i=i_max+1;i<i_min;i++)
+    {
+        sum=sum+array[i];
+    }
+}
+    
+
+
+//вывод на печать
+Console.WriteLine("Минимальное значение:");
 Console.WriteLine(f_min(array));
+Console.WriteLine("Максимальное значение:");
 Console.WriteLine(f_max(array));
+Console.WriteLine("Сумма:");
+Console.WriteLine(sum);
